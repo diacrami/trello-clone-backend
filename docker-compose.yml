@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  payments-api:
+    container_name: londonuw-epay-payments
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '9000:9000'
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - /app/node_modules  # previene conflictos con los node_modules locales
+
+    command: npm run dev
+    develop:
+      watch:
+        - action: rebuild 
+          path: ./src
+          target: /usr/src/app/src
+    
