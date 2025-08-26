@@ -13,8 +13,8 @@ COPY package*.json ./
 # Instala dependencias
 RUN npm install
 
+# Copia todo el código fuente
 COPY . .
-
 
 # Compila TypeScript → dist/
 RUN npm run build
@@ -34,4 +34,4 @@ WORKDIR /app
 EXPOSE 3000
 
 # Comando para staging (igual a producción si usas start:prod)
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start:staging"]
