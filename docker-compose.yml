@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   payments-api:
-    container_name: londonuw-epay-payments
+    container_name: trello-clone-backend
     build:
       context: .
       dockerfile: Dockerfile

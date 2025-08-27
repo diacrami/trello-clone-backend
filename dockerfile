@@ -1,37 +1,33 @@
-# ---------------------------------------------------
-# 🚀 Dockerfile.staging para NestJS + Prisma en GCP
-# ---------------------------------------------------
+# ---- Etapa 1: Construcción ----
+FROM node:18 AS build
 
-# Etapa 1: build (compila el código y genera el cliente Prisma)
-FROM node:18-alpine AS builder
-
+# Crear directorio de trabajo
 WORKDIR /app
 
-# Copia dependencias
+# Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# Instala dependencias
-RUN npm install
+# Instalar dependencias de forma limpia y rápida
+RUN npm ci --only=production
 
-# Copia todo el código fuente
+# Copiar el resto del código
 COPY . .
 
-# Compila TypeScript → dist/
-RUN npm run build
+# ---- Etapa 2: Imagen final ----
+FROM node:18-slim
 
-# ---------------------------------------------------
-# Etapa 2: runtime (limpia, segura, sin devDeps)
-FROM node:18-alpine
-
+# Crear directorio de trabajo
 WORKDIR /app
 
-# Por seguridad, Prisma se usará con cliente ya generado.
-# NO ejecutamos migraciones aquí. Las haces tú antes del deploy.
+# Copiar dependencias y código desde la imagen de build
+COPY --from=build /app /app
 
-# Variables de entorno se inyectan vía GCP (`--set-env-vars`)
+# Configurar variables de entorno
+ENV NODE_ENV=production
+ENV PORT=8080
 
-# Puerto expuesto por NestJS
-EXPOSE 3000
+# Exponer puerto para Cloud Run
+EXPOSE 8080
 
-# Comando para staging (igual a producción si usas start:prod)
-CMD ["npm", "run", "start:staging"]
+# Comando para iniciar la app
+CMD ["node", "src/index.js"]
