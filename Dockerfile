@@ -1,23 +1,22 @@
+# Imagen base oficial de Node.js
 FROM node:18-alpine
 
+# Establecemos el directorio de trabajo
 WORKDIR /app
 
 # Copiamos los archivos de dependencias
 COPY package*.json ./
 
-# Instalamos TODAS las dependencias (no solo prod, porque necesitamos TypeScript)
-RUN npm install
+# Instalamos solo dependencias de producción
+RUN npm install --only=production
 
-# Copiamos el resto del código
+# Copiamos todo el proyecto
 COPY . .
 
-# Compilamos el proyecto dentro del contenedor
-RUN npm run build
-
-# Configuramos variables de entorno
+# Definimos variables de entorno
 ENV NODE_ENV=production
 ENV PORT=8080
 EXPOSE 8080
 
-# Ejecutamos el archivo compilado
-CMD ["node", "dist/main"]
+# Arrancamos la app desde src/index.js
+CMD ["npm", "run", "start"]
