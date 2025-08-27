@@ -10,7 +10,7 @@ const boardRoutes = require("./routes/board");
 const app = express();
 app.use(cors());
 /* toma el puerto del servicio de hosting o el 9000 */
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 
 /* 
     ver si el server responde peticion de cliente, definiendo una ruta

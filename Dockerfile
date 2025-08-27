@@ -14,7 +14,7 @@ RUN npm install --only=production
 COPY . .
 
 # Expón el puerto
-EXPOSE 8080
+EXPOSE 9000
 
 # Comando de inicio
 CMD ["npm", "run", "start:staging"]
