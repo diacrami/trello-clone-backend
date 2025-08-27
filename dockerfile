@@ -30,8 +30,8 @@ WORKDIR /app
 
 # Variables de entorno se inyectan vía GCP (`--set-env-vars`)
 
-# Puerto expuesto por NestJS
-EXPOSE 3000
+# Puerto expuesto por Node
+EXPOSE 9000
 
 # Comando para staging (igual a producción si usas start:prod)
 CMD ["npm", "run", "start:staging"]
