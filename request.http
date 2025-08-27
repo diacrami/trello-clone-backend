@@ -1,17 +1,17 @@
 //-----------TRELLO-------------
 
 ###
-GET http://localhost:9000/api/trellos/ HTTP/1.1
+GET http://localhost:3000/api/trellos/ HTTP/1.1
 
 //get all trellos
 
 ###
-GET http://localhost:9000/api/trello/ HTTP/1.1
+GET http://localhost:3000/api/trello/ HTTP/1.1
 
 //Get all trello with everything
 
 ###
-POST http://localhost:9000/api/trello HTTP/1.1
+POST http://localhost:3000/api/trello HTTP/1.1
 Content-Type: application/json
 
 //crear un trello completo, o sea una lista de boards
@@ -23,12 +23,12 @@ Content-Type: application/json
 //-----------BOARD-------------
 
 ###
-GET http://localhost:9000/api/board/66d0e9ec2787162c6a18c091 HTTP/1.1
+GET http://localhost:3000/api/board/66d0e9ec2787162c6a18c091 HTTP/1.1
 
 //get board
 
 ###
-POST http://localhost:9000/api/board HTTP/1.1
+POST http://localhost:3000/api/board HTTP/1.1
 Content-Type: application/json
 
 //CREAR UN BOARD EN UN TRELLO USANDO EL ID DEL TRELLO
@@ -42,7 +42,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:9000/api/board/66d0c7310f5ee80ebb874588 HTTP/1.1
+PUT http://localhost:3000/api/board/66d0c7310f5ee80ebb874588 HTTP/1.1
 Content-Type: application/json 
 
 //actualizar un board
@@ -55,24 +55,24 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:9000/api/boards/66d0e9cf2787162c6a18c08e HTTP/1.1
+GET http://localhost:3000/api/boards/66d0e9cf2787162c6a18c08e HTTP/1.1
 
 //obtener los boards de un trello
 
 ###
-DELETE http://localhost:9000/api/board/66d39c142228969b9f97278b HTTP/1.1
+DELETE http://localhost:3000/api/board/66d39c142228969b9f97278b HTTP/1.1
 
 
 //-----------PANEL-------------
 
 ###
-GET http://localhost:9000/api/panel/66d0fc0ee254801fb2f959b3 HTTP/1.1
+GET http://localhost:3000/api/panel/66d0fc0ee254801fb2f959b3 HTTP/1.1
 
 //get panel
 
 
 ###
-POST http://localhost:9000/api/panel HTTP/1.1
+POST http://localhost:3000/api/panel HTTP/1.1
 Content-Type: application/json
 
 //CREAR UN PANEL EN UN BOARD USANDO EL ID DEL BOARD
@@ -85,7 +85,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:9000/api/panel/66d0fbfde254801fb2f959b0 HTTP/1.1
+PUT http://localhost:3000/api/panel/66d0fbfde254801fb2f959b0 HTTP/1.1
 Content-Type: application/json 
 
 //update panel
@@ -99,7 +99,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:9000/api/panels/66d0e9ec2787162c6a18c091 HTTP/1.1
+GET http://localhost:3000/api/panels/66d0e9ec2787162c6a18c091 HTTP/1.1
 
 //obtener los panels de un board
 
@@ -108,12 +108,12 @@ GET http://localhost:9000/api/panels/66d0e9ec2787162c6a18c091 HTTP/1.1
 //-----------TASK-------------
 
 ###
-GET http://localhost:9000/api/task/66d22e4e4b3c2531ab622929 HTTP/1.1
+GET http://localhost:3000/api/task/66d22e4e4b3c2531ab622929 HTTP/1.1
 
 //get task
 
 ###
-POST http://localhost:9000/api/task HTTP/1.1
+POST http://localhost:3000/api/task HTTP/1.1
 Content-Type: application/json
 
 //CREAR UN TASK EN UN PANEL USANDO EL ID DEL PANEL
@@ -131,7 +131,7 @@ Content-Type: application/json
 //update task
 
 ###
-PUT http://localhost:9000/api/task/66d22e4e4b3c2531ab622929 HTTP/1.1
+PUT http://localhost:3000/api/task/66d22e4e4b3c2531ab622929 HTTP/1.1
 Content-Type: application/json 
 
 {
@@ -144,7 +144,7 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:9000/api/task/66d34b2b3de4da597e08f8f1 HTTP/1.1
+DELETE http://localhost:3000/api/task/66d34b2b3de4da597e08f8f1 HTTP/1.1
 
 
 
